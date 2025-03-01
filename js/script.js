@@ -17,11 +17,10 @@ loadComponent("nav-placeholder", "nav.html");
 loadComponent("footer-placeholder", "footer.html");
 
 
-// display 5 games per page 
 fetch('json/games.json')
-    .then(response => response.json())
+    .then(res => res.json())
     .then(games => {
-        const gamesPerPage = 6;
+        const gamesPerPage = 5;
         let currentPage = 0;
         const totalPages = Math.ceil(games.length / gamesPerPage);
         const container = document.querySelector('.games');
@@ -29,65 +28,27 @@ fetch('json/games.json')
         const nextButton = document.getElementById('nextButton');
         const pageButtonsContainer = document.getElementById('pageButtons');
 
-        function renderGames() {
-            container.innerHTML = ''; // Clear current games
-            const gamesToShow = games.slice(currentPage * gamesPerPage, (currentPage + 1) * gamesPerPage);
-            gamesToShow.forEach(game => {
-                const gameDiv = document.createElement('div');
-                gameDiv.classList.add('game-img');
+        const renderGames = () => {
+            container.innerHTML = games.slice(currentPage * gamesPerPage, (currentPage + 1) * gamesPerPage)
+                .map(game => `<div class="game-img">
+                    <img class="game-image" src="${game.img}" alt="${game.title} game">
+                    <h2 class="game-title">${game.title}</h2>
+                </div>`).join('');
+            renderPagination();
+        };
 
-                const img = document.createElement('img');
-                img.classList.add('game-image');
-                img.src = game.img;
-                img.alt = game.title + ' game';
+        const renderPagination = () => {
+            pageButtonsContainer.innerHTML = Array.from({ length: totalPages }, (_, i) => 
+                `<button ${i === currentPage ? 'class="active"' : ''}>${i + 1}</button>`).join('');
+            [...pageButtonsContainer.children].forEach((btn, i) => btn.onclick = () => (currentPage = i, renderGames()));
+        };
 
-                const title = document.createElement('h2');
-                title.classList.add('game-title');
-                title.textContent = game.title;
-
-                gameDiv.appendChild(img);
-                gameDiv.appendChild(title);
-                container.appendChild(gameDiv);
-            });
-
-            updatePageButtons(); // Update the page buttons when games are rendered
-        }
-
-        function updatePageButtons() {
-            pageButtonsContainer.innerHTML = ''; // Clear the existing buttons
-            for (let i = 0; i < totalPages; i++) {
-                const button = document.createElement('button');
-                button.textContent = i + 1; // Button number starts from 1
-                button.addEventListener('click', () => {
-                    currentPage = i;
-                    renderGames(); // Render the selected page's games
-                });
-                if (i === currentPage) {
-                    button.style.backgroundColor = '#4CAF50'; // Highlight the active page
-                    button.style.color = 'white';
-                }
-                pageButtonsContainer.appendChild(button);
-            }
-        }
-
-        prevButton.addEventListener('click', () => {
-            if (currentPage > 0) {
-                currentPage--;
-            } else {
-                currentPage = totalPages - 1; // Go to last page
-            }
+        [prevButton, nextButton].forEach((btn, i) => btn.onclick = () => {
+            currentPage = (currentPage + (i ? 1 : -1) + totalPages) % totalPages;
             renderGames();
         });
 
-        nextButton.addEventListener('click', () => {
-            if (currentPage < totalPages - 1) {
-                currentPage++;
-            } else {
-                currentPage = 0; // Go back to first page
-            }
-            renderGames();
-        });
-
-        renderGames(); // Initial render
+        renderGames();
     })
-    .catch(error => console.error('Error loading JSON:', error));
+    .catch(err => console.error('Error loading JSON:', err));
+
