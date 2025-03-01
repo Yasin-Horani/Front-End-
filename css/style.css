@@ -5,6 +5,7 @@
     --background-nav: #171d25;
     --background: #1B2838;
     --text: white;
+    --paginationHover: #555;
 }
 
 body {
@@ -18,7 +19,7 @@ body {
 .title {
     color: var(--title);
     text-align: center;
-    margin: 1vh 0;
+    margin-top: 4vh;
 }
 
 .title:hover {
@@ -72,6 +73,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-top: 5vh;
 }
 
 /* Home Image */
@@ -103,6 +105,7 @@ body {
 .games {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
     gap: 1%;
 }
 
@@ -141,21 +144,21 @@ body {
     display: flex;
     justify-content: center;
     align-self: row;
-    margin-bottom: 3vh;
+    margin-bottom: 7vh;
 }
 
 button {
     padding: 10px;
     font-size: 16px;
-    background-color: #333;
-    color: white;
+    background-color: var(--background-nav);
+    color: var(--text);
     border: none;
     cursor: pointer;
     margin: 5px;
 }
 
 button:hover {
-    background-color: #555;
+    background-color: var(--paginationHover);
 }
 
 #prevButton, #nextButton {
@@ -169,8 +172,8 @@ button:hover {
 }
 
 #pageButtons button.active {
-    background-color: #4CAF50;
-    color: white;
+    background-color: var(--hoverNav);
+    color: var(--text);
 }
 
 /* Mobile Responsive */
