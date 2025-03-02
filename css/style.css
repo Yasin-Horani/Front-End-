@@ -198,6 +198,13 @@ body {
     color: var(--text);
 }
 
+/*filter*/
+.filter {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
 /* Mobile Responsive */
 @media screen and (max-width: 700px) {
     #img-home img {
