@@ -51,7 +51,7 @@ fetch('json/games.json')
                 // Hover info div (price & year)
                 const hoverInfo = document.createElement('div');
                 hoverInfo.classList.add('hover-info');
-                hoverInfo.textContent = `Released in ${game.year}, it is priced at €${game.price}`;
+                hoverInfo.textContent = `Released in ${game.year}, it is priced at €${game.price} on steam.`;
 
                 // Append elements
                 gameDiv.appendChild(gameImage);
