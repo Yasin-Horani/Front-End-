@@ -1,7 +1,8 @@
 :root {
     --title: white;
-    --hoverTitle: #4c6b22;
+    --hoverTitle: #9ea495;
     --hoverNav: #A7BACC;
+    --hover: #a7baccb2;
     --background-nav: #171d25;
     --background: #1B2838;
     --text: white;
@@ -125,7 +126,7 @@ body {
 }
 
 .game-img:hover {
-    background-color: var(--hoverNav);
+    background-color: var(--hover);
     transform: scale(1.05);
 }
 
@@ -136,6 +137,27 @@ body {
     object-fit: cover;   
     object-position: center;
 }
+/* Hover info box */
+.hover-info {
+    position: absolute;
+    bottom: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--hover);
+    color: var(--text);
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 14px;
+    opacity: 0;
+    transition: opacity 1.5s ease-in-out;
+    font-weight: bold;
+}
+
+/* Show hover info when hovering over game */
+.game-img:hover .hover-info {
+    opacity: 1;
+}
+
 
 
 /* Pagination buttons */
@@ -147,7 +169,7 @@ body {
     margin-bottom: 7vh;
 }
 
-button {
+.pagination button {
     padding: 10px;
     font-size: 16px;
     background-color: var(--background-nav);
@@ -157,7 +179,7 @@ button {
     margin: 5px;
 }
 
-button:hover {
+.pagination button:hover {
     background-color: var(--paginationHover);
 }
 
@@ -172,7 +194,7 @@ button:hover {
 }
 
 #pageButtons button.active {
-    background-color: var(--hoverNav);
+    background-color: var(--hover);
     color: var(--text);
 }
 
