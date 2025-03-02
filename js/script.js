@@ -18,19 +18,18 @@ loadComponent("footer-placeholder", "footer.html");
 
 // Load the games data from a JSON file
 fetch('json/games.json')
-    .then(response => response.json()) // Convert response to JSON
+    .then(response => response.json())
     .then(games => {
-        const gamesPerPage = 5; // Number of games per page
-        let currentPage = 0; // Start at the first page
-        const totalPages = Math.ceil(games.length / gamesPerPage); // Calculate total pages
+        const gamesPerPage = 5;
+        let currentPage = 0;
+        const totalPages = Math.ceil(games.length / gamesPerPage);
         
-        const container = document.querySelector('.games'); // Get the container for games
-        const prevButton = document.getElementById('prevButton'); // Get previous button
-        const nextButton = document.getElementById('nextButton'); // Get next button
-        const pageButtonsContainer = document.getElementById('pageButtons'); // Get pagination container
+        const container = document.querySelector('.games');
+        const prevButton = document.getElementById('prevButton');
+        const nextButton = document.getElementById('nextButton');
+        const pageButtonsContainer = document.getElementById('pageButtons');
 
         function showGames() {
-            // Clear the container and show the current page's games
             container.innerHTML = '';
             const start = currentPage * gamesPerPage;
             const end = start + gamesPerPage;
@@ -39,7 +38,7 @@ fetch('json/games.json')
             gamesToShow.forEach(game => {
                 const gameDiv = document.createElement('div');
                 gameDiv.classList.add('game-img');
-                
+
                 const gameImage = document.createElement('img');
                 gameImage.classList.add('game-image');
                 gameImage.src = game.img;
@@ -49,8 +48,15 @@ fetch('json/games.json')
                 gameTitle.classList.add('game-title');
                 gameTitle.textContent = game.title;
 
+                // Hover info div (price & year)
+                const hoverInfo = document.createElement('div');
+                hoverInfo.classList.add('hover-info');
+                hoverInfo.textContent = `Released in ${game.year}, it is priced at €${game.price}`;
+
+                // Append elements
                 gameDiv.appendChild(gameImage);
                 gameDiv.appendChild(gameTitle);
+                gameDiv.appendChild(hoverInfo);
                 container.appendChild(gameDiv);
             });
 
@@ -87,6 +93,6 @@ fetch('json/games.json')
             }
         });
 
-        showGames(); // Show the first page when the script runs
+        showGames();
     })
     .catch(error => console.error('Error loading JSON:', error));
