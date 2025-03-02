@@ -17,38 +17,77 @@ loadComponent("nav-placeholder", "nav.html");
 loadComponent("footer-placeholder", "footer.html");
 
 
+// Load the games data from a JSON file
 fetch('json/games.json')
-    .then(res => res.json())
+    .then(response => response.json()) // Convert response to JSON
     .then(games => {
-        const gamesPerPage = 5;
-        let currentPage = 0;
-        const totalPages = Math.ceil(games.length / gamesPerPage);
-        const container = document.querySelector('.games');
-        const prevButton = document.getElementById('prevButton');
-        const nextButton = document.getElementById('nextButton');
-        const pageButtonsContainer = document.getElementById('pageButtons');
+        const gamesPerPage = 5; // Number of games per page
+        let currentPage = 0; // Start at the first page
+        const totalPages = Math.ceil(games.length / gamesPerPage); // Calculate total pages
+        
+        const container = document.querySelector('.games'); // Get the container for games
+        const prevButton = document.getElementById('prevButton'); // Get previous button
+        const nextButton = document.getElementById('nextButton'); // Get next button
+        const pageButtonsContainer = document.getElementById('pageButtons'); // Get pagination container
 
-        const renderGames = () => {
-            container.innerHTML = games.slice(currentPage * gamesPerPage, (currentPage + 1) * gamesPerPage)
-                .map(game => `<div class="game-img">
-                    <img class="game-image" src="${game.img}" alt="${game.title} game">
-                    <h2 class="game-title">${game.title}</h2>
-                </div>`).join('');
-            renderPagination();
-        };
+        function showGames() {
+            // Clear the container and show the current page's games
+            container.innerHTML = '';
+            const start = currentPage * gamesPerPage;
+            const end = start + gamesPerPage;
+            const gamesToShow = games.slice(start, end);
 
-        const renderPagination = () => {
-            pageButtonsContainer.innerHTML = Array.from({ length: totalPages }, (_, i) => 
-                `<button ${i === currentPage ? 'class="active"' : ''}>${i + 1}</button>`).join('');
-            [...pageButtonsContainer.children].forEach((btn, i) => btn.onclick = () => (currentPage = i, renderGames()));
-        };
+            gamesToShow.forEach(game => {
+                const gameDiv = document.createElement('div');
+                gameDiv.classList.add('game-img');
+                
+                const gameImage = document.createElement('img');
+                gameImage.classList.add('game-image');
+                gameImage.src = game.img;
+                gameImage.alt = game.title + ' game';
 
-        [prevButton, nextButton].forEach((btn, i) => btn.onclick = () => {
-            currentPage = (currentPage + (i ? 1 : -1) + totalPages) % totalPages;
-            renderGames();
+                const gameTitle = document.createElement('h2');
+                gameTitle.classList.add('game-title');
+                gameTitle.textContent = game.title;
+
+                gameDiv.appendChild(gameImage);
+                gameDiv.appendChild(gameTitle);
+                container.appendChild(gameDiv);
+            });
+
+            updatePagination();
+        }
+
+        function updatePagination() {
+            pageButtonsContainer.innerHTML = '';
+            for (let i = 0; i < totalPages; i++) {
+                const pageButton = document.createElement('button');
+                pageButton.textContent = i + 1;
+                if (i === currentPage) {
+                    pageButton.classList.add('active');
+                }
+                pageButton.addEventListener('click', () => {
+                    currentPage = i;
+                    showGames();
+                });
+                pageButtonsContainer.appendChild(pageButton);
+            }
+        }
+
+        prevButton.addEventListener('click', () => {
+            if (currentPage > 0) {
+                currentPage--;
+                showGames();
+            }
         });
 
-        renderGames();
-    })
-    .catch(err => console.error('Error loading JSON:', err));
+        nextButton.addEventListener('click', () => {
+            if (currentPage < totalPages - 1) {
+                currentPage++;
+                showGames();
+            }
+        });
 
+        showGames(); // Show the first page when the script runs
+    })
+    .catch(error => console.error('Error loading JSON:', error));
