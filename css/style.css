@@ -4,6 +4,7 @@
     --hoverNav: #A7BACC;
     --hover: #a7baccb2;
     --background-nav: #171d25;
+    --button-color: #171d25;
     --background: #1B2838;
     --text: white;
     --paginationHover: #555;
@@ -95,11 +96,9 @@ body {
 /* Collections */
 .container {
     margin: 3%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
+    display: block;
     color: var(--text);
+    
 }
 
 /* Game Grid */
@@ -172,7 +171,7 @@ body {
 .pagination button {
     padding: 10px;
     font-size: 16px;
-    background-color: var(--background-nav);
+    background-color: var(--button-color);
     color: var(--text);
     border: none;
     cursor: pointer;
@@ -203,6 +202,110 @@ body {
     display: flex;
     justify-content: center;
     gap: 10px;
+}
+
+/* Form Container */
+.form-container {
+    margin-top: 5vh;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+.form-container form {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    width: 100%;
+    max-width: 30%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin: auto;
+}
+
+/* Labels */
+.form-container label {
+    font-weight: bold;
+    text-align: left;
+    display: block;
+    color: var(--text);
+    font-size: 14px;
+}
+
+/* Input Fields */
+.form-container input {
+    padding: 12px;
+    border: 2px solid transparent;
+    border-radius: 8px;
+    outline: none;
+    font-size: 16px;
+    background: rgba(255, 255, 255, 0.2);
+    color: var(--text);
+
+}
+
+/* Input Focus Effect */
+.form-container input:focus {
+    border-color: var(--paginationHover);
+    background: rgba(255, 255, 255, 0.3);
+}
+
+/* File Input Styling */
+.form-container input[type="file"] {
+    display: none;
+}
+
+.form-container .file-label {
+    display: inline-block;
+    padding: 12px;
+    background: #007bff;
+    color: var(--text);
+    border-radius: 8px;
+    cursor: pointer;
+    text-align: center;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.form-container .file-label:hover {
+    background: #0056b3;
+}
+
+/* Image Preview */
+.form-container img#preview {
+    display: none;
+    width: 100%;
+    max-height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-top: 10px;
+    border: 2px solid #ffffff40;
+}
+
+/* Submit Button */
+.form-container button {
+    background: var(--button-color);
+    color: var(--text);
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.form-container button:hover {
+    background: var(--hover);
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+    form {
+        width: 90%;
+    }
 }
 
 /* Mobile Responsive */
