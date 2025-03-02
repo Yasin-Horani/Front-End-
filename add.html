@@ -1,16 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head id="head-placeholder">
 </head>
+
 <body>
 
     <header>
         <div id="nav-placeholder"></div>
     </header>
-    
+
     <main>
         <h1 class="title">Add Game <span><img width="70vw" src="./img/gamer ps4 GIF.gif" alt=""></span></h1>
-        <button><a href="index.html">Back to home bage</a></button>
+        <div class="form-container">
+            <form action="#" method="POST" enctype="multipart/form-data">
+
+                <!-- Preview Image -->
+                <img id="preview" src="" alt="Image Preview">
+
+                <!-- Game Title -->
+                <label for="gameTitle">Game Title:</label>
+                <input type="text" id="gameTitle" name="gameTitle" required placeholder="Enter game title">
+
+                <!-- Game Year -->
+                <label for="gameYear">Release Year:</label>
+                <input type="number" id="gameYear" name="gameYear" min="1990" max="2026" required
+                    placeholder="Enter year">
+
+                <!-- Game Price -->
+                <label for="gamePrice">Price (€):</label>
+                <input type="number" id="gamePrice" name="gamePrice" required placeholder="Enter price" step="0.01">
+
+                <!-- Image Upload -->
+                <label for="gameImage" class="file-label">Upload Image</label>
+                <input type="file" id="gameImage" name="gameImage" accept="image/*" required>
+
+                <!-- Submit Button -->
+                <button type="submit">Add Game</button>
+            </form>
+
+        </div>
     </main>
     <footer>
         <div id="footer-placeholder"></div>
