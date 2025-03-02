@@ -16,7 +16,6 @@ loadComponent("nav-placeholder", "nav.html");
 //footer
 loadComponent("footer-placeholder", "footer.html");
 
-
 // Load the games data from a JSON file
 fetch('json/games.json')
     .then(response => response.json()) // Convert response to JSON
