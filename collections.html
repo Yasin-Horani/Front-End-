@@ -1,15 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head id="head-placeholder">
-    </head>
+
+<head id="head-placeholder">
+</head>
+
 <body>
-    
+
     <header>
         <div id="nav-placeholder"></div>
     </header>
     <main>
         <h1 class="title">Collections <span><img width="70vw" src="./img/gamer ps4 GIF.gif" alt=""></span></h1>
         <div class="container">
+            <div class="filter">
+                <!-- Search Filter-->
+                <label class="search">Search
+                    <input type="text" id="searchInput" placeholder="Game name">
+                </label>
+                <!-- Sort Filter-->
+                <label for="sortSelect" class="sort-filter">Sort 
+                    <select id="sortSelect">
+                        <option value="title">Name</option>
+                        <option value="LowestPrice">Lowest price</option>
+                        <option value="HighestPrice">Highest price</option>
+                        <option value="year">Release date</option>
+                    </select>
+                </label>
+            </div>
             <div class="games">
                 <!-- display all games from json -->
             </div>
@@ -22,7 +39,9 @@
     </main>
     <footer>
         <div id="footer-placeholder"></div>
-    </footer>    
+    </footer>
 </body>
+
 <script src="js/script.js"></script>
+
 </html>
