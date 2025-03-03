@@ -20,7 +20,7 @@ loadComponent("footer-placeholder", "footer.html");
 let games = [];
 let filteredGames = [];
 let currentPage = 1;
-const gamesPerPage = 5;
+const gamesPerPage = 5; // Number of games to display per page
 
 // Function to display games for the current page
 function displayGames() {
