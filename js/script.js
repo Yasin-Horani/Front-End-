@@ -123,3 +123,19 @@ document.getElementById("nextButton").addEventListener("click", () => {
     displayGames();
   }
 });
+
+// catorgories
+function filterByCategory() {
+  const selectedCategory = document.getElementById("categorySelect").value;
+
+  if (selectedCategory === "all") {
+    filteredGames = [...games]; // Show all games 
+  } else {
+    filteredGames = games.filter((game) => game.category === selectedCategory);
+  }
+
+  currentPage = 1;
+  displayGames();
+}
+
+document.getElementById("categorySelect").addEventListener("change", filterByCategory);
