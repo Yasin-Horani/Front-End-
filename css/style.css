@@ -22,6 +22,7 @@ body {
     color: var(--title);
     text-align: center;
     margin-top: 4vh;
+    padding: 10px;;
 }
 
 .title:hover {
