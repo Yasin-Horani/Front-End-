@@ -1,17 +1,107 @@
 [
-    { "img": "img/5k squadwipe GIF by Plays.gif", "title": "CS GO", "year": 2012, "price": 0 },
-    { "img": "img/Mortal Kombat Mk GIF by Gaming GIFs.gif", "title": "Mortal Kombat 11", "year": 2019, "price": 49 },
-    { "img": "img/Doom Eternal GIF.gif", "title": "Doom", "year": 2016, "price": 39 },
-    { "img": "img/Grand Theft Auto Gta GIF.gif", "title": "GTA V", "year": 2013, "price": 29 },
-    { "img": "img/Red Dead Redemption Snow GIF by Rockstar Games.gif", "title": "Red Dead 2", "year": 2018, "price": 59 },
-    { "img": "img/Video Games Ghost GIF by Call of Duty.gif", "title": "Call of Duty MW3", "year": 2011, "price": 39 },
-    { "img": "img/Resident Evil Horror GIF by CAPCOM.gif", "title": "Resident Evil Village", "year": 2021, "price": 59 },
-    { "img": "img/Background Zoom GIF by PUBG BATTLEGROUNDS.gif", "title": "PUBG", "year": 2017, "price": 29 },
-    { "img": "img/Aftereffects Tentacles GIF.gif", "title": "CARRION", "year": 2020, "price": 19 },
-    { "img": "img/Little Nightmares Horror GIF by BANDAI NAMCO.gif", "title": "Little Nightmares II", "year": 2021, "price": 29 },
-    { "img": "img/Loop Horror GIF by Xbox.gif", "title": "Scorn", "year": 2022, "price": 39 },
-    { "img": "img/Loop Mask GIF by Xbox.gif", "title": "Mortal Kombat 1", "year": 2023, "price": 69 },
-    { "img": "img/horror evil within 2 GIF by Bethesda.gif", "title": "The Evil Within 2", "year": 2017, "price": 29 },
-    { "img": "img/Call Of Duty Slide GIF by Xbox.gif", "title": "Call of Duty 6", "year": 2009, "price": 19 },
-    { "img": "img/Oh No Wow GIF by Rockstar Games.gif", "title": "GTA San Andreas", "year": 2004, "price": 9 }
+    {
+        "img": "img/5k squadwipe GIF by Plays.gif",
+        "title": "CS GO",
+        "year": 2012,
+        "price": 0,
+        "category": "Shooting"
+    },
+    {
+        "img": "img/Mortal Kombat Mk GIF by Gaming GIFs.gif",
+        "title": "Mortal Kombat 11",
+        "year": 2019,
+        "price": 49,
+        "category": "Survival"
+    },
+    {
+        "img": "img/Doom Eternal GIF.gif",
+        "title": "Doom",
+        "year": 2016,
+        "price": 39,
+        "category": "Shooting"
+    },
+    {
+        "img": "img/Grand Theft Auto Gta GIF.gif",
+        "title": "GTA V",
+        "year": 2013,
+        "price": 29,
+        "category": "Survival"
+    },
+    {
+        "img": "img/Red Dead Redemption Snow GIF by Rockstar Games.gif",
+        "title": "Red Dead 2",
+        "year": 2018,
+        "price": 59,
+        "category": "Survival"
+    },
+    {
+        "img": "img/Video Games Ghost GIF by Call of Duty.gif",
+        "title": "Call of Duty MW3",
+        "year": 2011,
+        "price": 39,
+        "category": "Shooting"
+    },
+    {
+        "img": "img/Resident Evil Horror GIF by CAPCOM.gif",
+        "title": "Resident Evil Village",
+        "year": 2021,
+        "price": 59,
+        "category": "Horror"
+    },
+    {
+        "img": "img/Background Zoom GIF by PUBG BATTLEGROUNDS.gif",
+        "title": "PUBG",
+        "year": 2017,
+        "price": 29,
+        "category": "Shooting"
+    },
+    {
+        "img": "img/Aftereffects Tentacles GIF.gif",
+        "title": "CARRION",
+        "year": 2020,
+        "price": 19,
+        "category": "Horror"
+    },
+    {
+        "img": "img/Little Nightmares Horror GIF by BANDAI NAMCO.gif",
+        "title": "Little Nightmares II",
+        "year": 2021,
+        "price": 29,
+        "category": "Horror"
+    },
+    {
+        "img": "img/Loop Horror GIF by Xbox.gif",
+        "title": "Scorn",
+        "year": 2022,
+        "price": 39,
+        "category": "Horror"
+    },
+    {
+        "img": "img/Loop Mask GIF by Xbox.gif",
+        "title": "Mortal Kombat 1",
+        "year": 2023,
+        "price": 69,
+        "category": "Survival"
+    },
+    {
+        "img": "img/horror evil within 2 GIF by Bethesda.gif",
+        "title": "The Evil Within 2",
+        "year": 2017,
+        "price": 29,
+        "category": "Horror"
+    },
+    {
+        "img": "img/Call Of Duty Slide GIF by Xbox.gif",
+        "title": "Call of Duty 6",
+        "year": 2009,
+        "price": 19,
+        "category": "Shooting"
+    },
+    {
+        "img": "img/Oh No Wow GIF by Rockstar Games.gif",
+        "title": "GTA San Andreas",
+        "year": 2004,
+        "price": 9,
+        "category": "Survival"
+    }
 ]
