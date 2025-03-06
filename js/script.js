@@ -88,8 +88,10 @@ function sortGames() {
       return b.price - a.price;
     } else if (sortOption === "LowestPrice") {
       return a.price - b.price;
-    } else if (sortOption === "year") {
+    } else if (sortOption === "newest") {
       return b.year - a.year; // Sort by newest first
+    } else if (sortOption === "oldest") {
+      return a.year - b.year; // Sort by oldest first
     }
   });
 
