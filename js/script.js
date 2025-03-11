@@ -102,11 +102,12 @@ function sortGames() {
 fetch("json/games.json")
   .then((response) => response.json())
   .then((data) => {
-    games = data;
+    games = data.games; 
     filteredGames = [...games];
     displayGames();
   })
   .catch((error) => console.error("Error loading JSON:", error));
+
 
 // Event Listeners
 document.getElementById("searchInput").addEventListener("input", searchGames);
