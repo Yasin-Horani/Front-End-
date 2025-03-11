@@ -117,7 +117,7 @@ body {
     display: flex;
     flex-direction: column;
     width: 25vw;
-    height: 30vh;
+    height: 40vh;
     background-color: var(--background-nav);
     border-radius: 8px;
     overflow: hidden;
@@ -139,26 +139,6 @@ body {
     object-position: center;
 }
 
-/* Hover info box */
-.hover-info {
-    position: absolute;
-    bottom: 100px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: var(--hover);
-    color: var(--text);
-    padding: 5px 10px;
-    border-radius: 5px;
-    font-size: 14px;
-    opacity: 0;
-    transition: opacity 1.5s ease-in-out;
-    font-weight: bold;
-}
-
-/* Show hover info when hovering over game */
-.game-img:hover .hover-info {
-    opacity: 1;
-}
 
 
 

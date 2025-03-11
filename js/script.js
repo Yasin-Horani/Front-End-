@@ -38,7 +38,8 @@ function displayGames() {
     gameDiv.innerHTML = `
             <img src="${game.img}" alt="${game.title} game" class="game-image">
             <h2 class="game-title">${game.title}</h2>
-            <div class="hover-info">Year: <span>${game.year}</span> | Price: <span>€${game.price}</span></div>
+            <p class="game-title">Released in ${game.year}<span>, priced at €${game.price}</span> </p>
+            
         `;
 
     container.appendChild(gameDiv);
@@ -102,12 +103,11 @@ function sortGames() {
 fetch("json/games.json")
   .then((response) => response.json())
   .then((data) => {
-    games = data.games; 
+    games = data.games;
     filteredGames = [...games];
     displayGames();
   })
   .catch((error) => console.error("Error loading JSON:", error));
-
 
 // Event Listeners
 document.getElementById("searchInput").addEventListener("input", searchGames);
@@ -132,7 +132,7 @@ function filterByCategory() {
   const selectedCategory = document.getElementById("categorySelect").value;
 
   if (selectedCategory === "all") {
-    filteredGames = [...games]; // Show all games 
+    filteredGames = [...games]; // Show all games
   } else {
     filteredGames = games.filter((game) => game.category === selectedCategory);
   }
@@ -141,4 +141,6 @@ function filterByCategory() {
   displayGames();
 }
 
-document.getElementById("categorySelect").addEventListener("change", filterByCategory);
+document
+  .getElementById("categorySelect")
+  .addEventListener("change", filterByCategory);
